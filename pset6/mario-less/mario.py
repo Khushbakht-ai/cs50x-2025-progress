@@ -1,0 +1,15 @@
+from cs50 import get_int
+
+# While loop to get valid height from user
+while True:
+    n = get_int("Height: ")
+    if (0 < n < 9):
+        break
+
+# For loop to print right-aligned pyramid for height n
+for i in range(1, n + 1):
+    for j in range(n - i):
+        print(" ", end="")
+    for k in range(i):
+        print("#", end="")
+    print()
