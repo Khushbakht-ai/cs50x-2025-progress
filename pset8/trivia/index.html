@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            // TODO: Add code to check answers to questions
+            document.addEventListener("DOMContentLoaded", function() {
+                function resetColors() {
+                    document.querySelector("#add1").style.backgroundColor = "";
+                    document.querySelector("#add2").style.backgroundColor = "";
+                    document.querySelector("#add3").style.backgroundColor = "";
+                }
+                function showCorrectAnswer() {
+                    document.querySelector("#add1").style.backgroundColor = "green"; // correct option
+                }
+                document.querySelector("#add1").addEventListener("click", function() {
+                    resetColors();
+                    this.style.backgroundColor = "green";
+                    document.querySelector("#feedback").textContent = "Correct!";
+                });
+                document.querySelector("#add2").addEventListener("click", function() {
+                    resetColors();
+                    this.style.backgroundColor = "red";
+                    showCorrectAnswer()
+                    document.querySelector("#feedback").textContent = "InCorrect!";
+                });
+                document.querySelector("#add3").addEventListener("click", function() {
+                    resetColors();
+                    this.style.backgroundColor = "red";
+                    showCorrectAnswer()
+                    document.querySelector("#feedback").textContent = "InCorrect!";
+                });
+                document.querySelector("#check").addEventListener("click", function() {
+                    let inputField = document.querySelector("#add_text");
+                    let answer = document.querySelector("#add_text").value.trim().toLowerCase();
+                    inputField.classList.remove("correct", "incorrect");
+
+                    if (answer === "hyper text markup language") {
+                        document.querySelector("#feedback2").textContent = "Correct!";
+                        document.querySelector("#feedback2").classList.add("correct");
+                        document.querySelector("#feedback2").classList.remove("incorrect");
+                        inputField.classList.add("correct");
+                    }
+                    else {
+                        document.querySelector("#feedback2").textContent = "InCorrect!";
+                        document.querySelector("#feedback2").classList.add("incorrect");
+                        document.querySelector("#feedback2").classList.remove("correct");
+                        inputField.classList.add("incorrect");
+
+                    }
+                });
+            });
+
+
+        </script>
+    </head>
+
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>
+                    Which method selects the first matching element in JavaScript?
+                </h3>
+                <button id="add1">querySelector()</button>
+                <button id="add2">querySelectorAll()</button>
+                <button id="add3">getElementById()</button>
+
+                <p id="feedback"></p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                <h3>What does HTML stand for</h3>
+                <input type="text" id="add_text">
+                <button id="check">Check</button>
+                <p id="feedback2"></p>
+            </div>
+        </div>
+    </body>
+
+</html>
