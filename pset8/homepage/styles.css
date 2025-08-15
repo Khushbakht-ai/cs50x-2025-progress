@@ -70,20 +70,8 @@ section {
     padding: 0.5rem 0;
 }
 
-h1.about-main-heading {
-    font-family: 'Open Sans', sans-serif;
-    color: #1E3A8A;
-    font-weight: 600;
-    font-size: 2.4rem;
-}
-
-h1.projects-main-heading {
-    font-family: 'Open Sans', sans-serif;
-    color: #1E3A8A;
-    font-weight: 600;
-    font-size: 2.4rem;
-}
-
+h1.about-main-heading,
+h1.projects-main-heading,
 h1.contact-main-heading {
     font-family: 'Open Sans', sans-serif;
     color: #1E3A8A;
