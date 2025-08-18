@@ -1,0 +1,76 @@
+/* Size for brand */
+nav .navbar-brand {
+    font-size: xx-large;
+}
+
+/* Colors for brand */
+nav .navbar-brand .blue {
+    color: #537fbe;
+}
+
+nav .navbar-brand .red {
+    color: #ea433b;
+}
+
+nav .navbar-brand .yellow {
+    color: #f5b82e;
+}
+
+nav .navbar-brand .green {
+    color: #2e944b;
+}
+
+nav.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1100;
+}
+
+
+.position-relative .fa-eye,
+.position-relative .fa-eye-slash {
+    position: absolute;
+    color: #777;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.position-relative .fa-eye:hover,
+.position-relative .fa-eye-slash:hover {
+    color: #000;
+}
+
+.alert {
+    background-color: #ADD8E6;
+    color: white;
+    padding: 30px;
+    text-align: center;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    z-index: 1080;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    margin-top: 120px;
+}
+
+
+table {
+    background-color: transparent;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+table th,
+table td {
+    padding: 0.75rem;
+    vertical-align: middle;
+}
+
+tbody tr:nth-of-type(odd) {
+    background-color: rgb(179, 208, 255, 0.3)
+}
