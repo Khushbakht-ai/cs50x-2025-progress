@@ -1,0 +1,135 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #fff5ec;
+    background-image: url("data:image/svg+xml,...");
+    background-size: cover;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.container-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 5px;
+}
+
+.title {
+    font-size: 88px;
+    color: #02CCEF;
+    font-weight: 1000;
+    -webkit-text-stroke: 1px black;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 1.0);
+    letter-spacing: 1px;
+    font-family: 'Fredoka One', cursive;
+    line-height: 1.9;
+}
+
+.heading {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.8rem;
+    /* margin-bottom: 20px;
+    margin-top:0px; */
+}
+
+.sub-heading {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 60px);
+    gap: 8px;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.day {
+    width: 60px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.day:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.complete {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.skipped {
+    background-color: #F44336;
+    color: white;
+}
+
+.not-done {
+    background-color: #E0E0E0;
+    color: #555;
+}
+
+.day[data-title]:hover::after {
+    content: attr(data-title);
+    position: absolute;
+    background: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    transform: translate(-50%, -150%);
+    pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 60px;
+        line-height: 1.2;
+    }
+
+    .heading {
+        font-size: 1.8rem;
+    }
+
+    .sub-heading {
+        font-size: 1.2rem;
+    }
+
+    .calendar {
+        grid-template-columns: repeat(5, 40px);
+        gap: 6px;
+    }
+
+    .day {
+        width: 40px;
+        height: 40px;
+        font-size: 0.8rem;
+    }
+
+    .day:hover {
+        transform: scale(1.05);
+    }
+
+    .day[data-title]:hover::after {
+        font-size: 0.7rem;
+    }
+}
