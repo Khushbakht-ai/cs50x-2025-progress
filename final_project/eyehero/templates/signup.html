@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+<!-- Signup card container centered using Bootstrap -->
+    <div class="signup-card mx-auto mt-5">
+
+    <!-- Page heading -->
+        <h2>Sign Up</h2>
+
+    <!-- Signup form -->
+        <form method="POST" action="{{ url_for('signup') }}">
+
+        <!-- Username input -->
+            <div class="mb-3 position-relative">
+                <input type="text" name="username" placeholder="Username" class="form-control" autocomplete="off" required>
+            </div>
+
+        <!-- Password input with toggle visibility -->
+            <div class="mb-3 position-relative">
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+            <!-- Eye icon to toggle password visibility -->
+                <i class="fa-solid fa-eye me-3" onclick="togglePassword('password', this)" style="cursor: pointer; position: absolute; right: 10px; top: 50%; transform: translateY(-50%);"></i>
+            </div>
+
+        <!-- Confirm Password input with toggle visibility -->
+            <div class="mb-3 position-relative">
+                <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Confirm Password" required>
+                <i class="fa-solid fa-eye me-3" onclick="togglePassword('confirm_password', this)" style="cursor: pointer; position: absolute; right: 10px; top: 50%; transform: translateY(-50%);"></i>
+            </div>
+
+        <!-- Security Question selection -->
+            <div class="mb-3">
+                <select name="security_question" class="form-select" required>
+                    <option value="" disabled selected>Select a security question</option>
+                    {% for q in questions %}
+                        <option value="{{ q }}">{{ q }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+        <!-- Security Answer input -->
+            <div class="mb-3">
+                <input type="text" name="security_answer" placeholder="Your Answer" class="form-control" required>
+            </div>
+
+        <!-- Submit button -->
+            <button type="submit" class="btn btn-custom form-control">Sign Up</button>
+        </form>
+
+    <!-- Link to login page -->
+        <a href="{{ url_for('login') }}">Already have an account? Login</a>
+    </div>
+
+<!-- Password toggle script -->
+    <script>
+    /**
+     * Toggles password visibility for input fields
+     * @param {string} id - The ID of the password input element
+     * @param {HTMLElement} icon - The eye icon element clicked
+     */
+        function togglePassword(id, icon) {
+            const passwordInput = document.getElementById(id);
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text"; // Show password
+                icon.classList.remove("fa-eye");
+                icon.classList.add("fa-eye-slash");
+            } else {
+                passwordInput.type = "password"; // Hide password
+                icon.classList.remove("fa-eye-slash");
+                icon.classList.add("fa-eye");
+            }
+        }
+    </script>
+{% endblock %}
