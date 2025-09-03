@@ -1,0 +1,29 @@
+{% extends "exercise.html" %}
+
+<!-- Page Title -->
+{% block title %}Morning Exercise{% endblock %}
+
+<!-- Body attributes and class for styling & JS targeting -->
+{% block body_attrs %}data-mode="morning"{% endblock %}
+{% block body_class %}morning-exercise-body{% endblock %}
+
+<!-- Main heading for the page -->
+{% block main_heading %}MORNING EXERCISES{% endblock %}
+
+<!-- Subheading with exercise guidance -->
+{% block sub_heading %}(Keep your screen at a comfortable distance — around 60–70 cm (arm’s length)){% endblock %}
+
+<!-- Instruction Text: show first exercise name -->
+{% block instruction_text %}
+    <h2 class="exercise-name">Eye Rolling</h2>
+{% endblock %}
+
+<!-- Hide Start & Stop buttons on this page (handled via navigation) -->
+{% block start_button_text %}{% endblock %}
+{% block stop_button_text %}{% endblock %}
+
+<!-- Extra scripts specific to exercises -->
+{% block extra_scripts %}
+<!-- Include morning exercise JS logic: timers, next steps, avatar updates -->
+    <script src="{{ url_for('static', filename='js/exercises.js') }}"></script>
+{% endblock %}
