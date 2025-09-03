@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <!-- Meta tags for responsive design and character encoding -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+
+        <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/icon.png') }}">
+
+        <!-- Main CSS for home/dashboard page -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+
+        <title>Home</title>
+    </head>
+
+    <body class="home-body">
+        <!-- Main container for the home/dashboard page -->
+        <div class="home-container">
+
+            <!-- Header section with app name -->
+            <div class="header">
+                <h1 class="home-title">EYE</h1>
+                <h2 class="home-subtitle">HERO</h2>
+            </div>
+
+            <!-- Main content section -->
+            <div class="main-content">
+
+                <!-- Card containing avatar and navigation buttons -->
+                <div class="menu-card">
+
+                    <!-- Avatar / logo section -->
+                    <div class="menu-avatar">
+                        <img src="{{ url_for('static', filename='images/eyehero.png') }}" alt="EyeHero Avatar">
+                    </div>
+
+                    <!-- Navigation buttons to access different features -->
+                    <div class="menu-buttons">
+                        <a href="{{ url_for('rule') }}" class="btn-cyan">20-20-20 Rule</a>
+                        <a href="{{ url_for('exercise') }}" class="btn-cyan">Exercises</a>
+                        <a href="{{ url_for('progress') }}" class="btn-cyan">Progress</a>
+                        <a href="{{ url_for('logout') }}" class="btn-cyan">Logout</a>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Footer section -->
+            <footer>
+                <p>© 2025 EyeHero | Protect Your Vision</p>
+            </footer>
+
+        </div>
+    </body>
+
+</html>
