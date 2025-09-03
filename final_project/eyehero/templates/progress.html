@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <!-- Meta tags for responsive design and charset -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CSS & JS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+
+        <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/icon.png') }}">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/progress.css') }}">
+
+        <!-- Page Title -->
+        <title>Progress Page</title>
+    </head>
+
+    <body>
+        <!-- Main container centered on screen -->
+        <div class="container-center">
+
+            <!-- Page Heading -->
+            <h1 class="title">Progress</h1>
+
+            <!-- Current streak display -->
+            <h1 class="heading">🔥 Current Streak: {{ streak }} days</h1>
+
+            <!-- Sub-heading -->
+            <h2 class="sub-heading">Your Monthly Progress</h2>
+
+            <!-- Calendar grid for the current month -->
+            <div class="calendar">
+                {% for day in range(1, last_day + 1) %}
+                    {% set date_str = year|string + "-" + "%02d"|format(month) + "-" + "%02d"|format(day) %}
+
+                    {% if date_str in user_progress %}
+                        {% if user_progress[date_str]['morning'] and user_progress[date_str]['night'] %}
+                <!-- Completed day (both morning & night done) -->
+                            <div class="day complete" data-title="Morning ✅, Night ✅">{{ day }}</div>
+                        {% else %}
+                <!-- Partially completed day -->
+                            <div class="day skipped" data-title="
+                                                                 Morning {% if user_progress[date_str]['morning'] %}✅{% else %}❌{% endif %},
+                                                                 Night {% if user_progress[date_str]['night'] %}✅{% else %}❌{% endif %}">
+                                {{ day }}
+                            </div>
+                        {% endif %}
+                    {% else %}
+                <!-- Day with no progress -->
+                        <div class="day not-done">{{ day }}</div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+
+        </div>
+    </body>
+
+</html>
