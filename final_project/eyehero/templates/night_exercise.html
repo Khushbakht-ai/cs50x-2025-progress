@@ -1,0 +1,29 @@
+<!-- Inherit from the base template exercise.html -->
+{% extends "exercise.html" %}
+
+<!-- Page Title -->
+{% block title %}Night Exercise{% endblock %}
+
+<!-- Custom attributes for <body> tag -->
+{% block body_attrs %}data-mode="night"{% endblock %}
+
+<!-- CSS class for <body> styling -->
+{% block body_class %}morning-exercise-body{% endblock %}
+
+<!-- Main heading displayed on the page -->
+{% block main_heading %}NIGHT EXERCISES{% endblock %}
+
+<!-- Subheading providing user guidance -->
+{% block sub_heading %}(Keep your screen at a comfortable distance — around 60–70 cm (arm’s length)){% endblock %}
+
+{% block instruction_text %}
+    <h2 class="exercise-name">Palming</h2> <!-- Exercise name displayed as a heading -->
+{% endblock %}
+
+{% block start_button_text %}{% endblock %} <!-- Placeholder for Start button text -->
+
+{% block stop_button_text %}{% endblock %} <!-- Placeholder for Stop button text -->
+
+{% block extra_scripts %}
+    <script src="/static/js/exercises.js"></script> <!-- Page-specific JavaScript for exercise functionality -->
+{% endblock %}
