@@ -26,7 +26,7 @@ function urlBase64ToUint8Array(base64String) {
  */
 async function registerServiceWorker() {
     if ("serviceWorker" in navigator) {
-        const registration = await navigator.serviceWorker.register("/sw.js"); // Register SW script
+        const registration = await navigator.serviceWorker.register("static/js/sw.js"); // Register SW script
         console.log("SW registered:", registration);
         return registration;
     }
