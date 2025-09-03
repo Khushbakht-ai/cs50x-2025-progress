@@ -9,8 +9,6 @@
 /**
 /**
  * Convert a Base64 VAPID key to a Uint8Array required for push subscriptions.
- * @param {string} base64String - The Base64-encoded VAPID public key.
- * @returns {Uint8Array} - Converted Uint8Array for PushManager.
  */
 function urlBase64ToUint8Array(base64String) {
     const padding = "=".repeat((4 - base64String.length % 4) % 4);
@@ -25,7 +23,6 @@ function urlBase64ToUint8Array(base64String) {
 
 /**
  * Register the Service Worker for push notifications.
- * @returns {ServiceWorkerRegistration|null} - The registration object if successful.
  */
 async function registerServiceWorker() {
     if ("serviceWorker" in navigator) {
@@ -97,7 +94,6 @@ let onBreak = false;
 
 /**
  * Update avatar image with fade-in effect.
- * @param {string} newSrc - URL of the new avatar image.
  */
 function setAvatar(newSrc) {
     avatarImg.style.opacity = "0";
@@ -113,8 +109,6 @@ function setAvatar(newSrc) {
 
 /**
  * Show a desktop notification if permission granted.
- * @param {string} title - Notification title.
- * @param {string} body - Notification body.
  */
 function showNotification(title, body) {
     if (Notification.permission !== "granted") return;
