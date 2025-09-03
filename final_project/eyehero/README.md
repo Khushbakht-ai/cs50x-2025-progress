@@ -56,6 +56,7 @@ The app follows the **20-20-20 Rule**, guides users through **morning and night 
 ---
 
 ## File Structure
+```
 eyehero/
 ├── app.py                      # Main Flask application (routes, DB connections, backend logic)
 ├── requirements.txt            # Python dependencies list (Flask, SQLite, etc.)
@@ -96,7 +97,7 @@ eyehero/
 │           # Handles push subscriptions, sending notifications, Express API
 └── db/
     └── eyehero.db              # SQLite database (users + progress + push_subscriptions)
-
+```
 ---
 
 ## How It Works
