@@ -1,0 +1,55 @@
+{% extends "rule.html" %}
+
+{% block body_class %}exercise-body{% endblock %}
+{% block body_attrs %}{% endblock %}
+
+<!-- Page Title -->
+{% block title %}Exercise{% endblock %}
+
+<!-- Main Heading -->
+{% block main_heading %}EXERCISES{% endblock %}
+
+<!-- Subheading (optional, empty) -->
+{% block sub_heading %}{% endblock %}
+
+<!-- Instruction Text -->
+{% block instruction_text %}
+    Follow these exercises to strengthen your eyes! 💪👀
+{% endblock %}
+
+<!-- Start & Stop Buttons Text -->
+{% block start_button_text %}Morning<br>Exercise{% endblock %}
+{% block stop_button_text %}Night<br>Exercise{% endblock %}
+
+<!-- Extra Scripts -->
+{% block extra_scripts %}
+    <script>
+    // Redirect StartButton to Morning Exercise page
+        document.getElementById('StartButton').onclick = function() {
+            window.location.href = "{{ url_for('morning_exercise') }}";
+        }
+
+    // Redirect StopButton to Night Exercise page
+        document.getElementById('StopButton').onclick = function() {
+            window.location.href = "{{ url_for('night_exercise') }}";
+        }
+    </script>
+
+    <script>
+    // Redirect Home & Progress buttons if they exist
+        const homeBtn = document.getElementById('homeButton');
+        if (homeBtn) {
+            homeBtn.onclick = function() {
+                window.location.href = "{{ url_for('exercise') }}";
+            }
+        }
+
+        const progressBtn = document.getElementById('progressButton');
+        if (progressBtn) {
+            progressBtn.onclick = function() {
+                window.location.href = "{{ url_for('progress') }}";
+            }
+        }
+    </script>
+
+{% endblock %}
