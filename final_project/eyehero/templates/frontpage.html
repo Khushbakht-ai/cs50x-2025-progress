@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <!-- Meta tags for responsive design and character encoding -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+
+        <!-- Preload background image for faster loading -->
+        <link rel="preload" as="image" href="{{ url_for('static', filename='images/background.png') }}">
+
+        <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/icon.png') }}">
+
+        <!-- Main CSS for landing page -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
+
+        <title>Welcome | EyeHero</title>
+    </head>
+
+    <body class="welcome-body">
+        <!-- Main container for the landing page content -->
+        <div class="landing-container">
+
+            <!-- App Name / Title -->
+            <h1 class="welcome-title">EYE</h1>
+            <h2 class="welcome-subtitle">HERO</h2>
+
+            <!-- Central logo / illustration -->
+            <div class="welcome-image">
+                <img src="{{ url_for('static', filename='images/eyehero.png') }}" alt="EyeHero Logo">
+            </div>
+
+            <!-- Navigation buttons for login and signup -->
+            <div class="welcome-buttons">
+                <a href="{{ url_for('login') }}" class="btn-yellow">LOGIN</a>
+                <a href="{{ url_for('signup') }}" class="btn-yellow">SIGN UP</a>
+            </div>
+
+        </div>
+
+    </body>
+
+</html>
